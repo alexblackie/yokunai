@@ -1,8 +1,11 @@
 Gem::Specification.new do |s|
   s.name = "yokunai"
-  s.version = "0.1.0"
+  s.version = "0.1.1"
   s.summary = "Helps you make really simple dynamic Internet Web Pages."
-  s.description =
+  s.description = <<-EOS.chomp
+  An extremely too-simple web framework based on raw Rack and some helper
+  classes. Scratches a very particular itch--one you likely don't have.
+  EOS
   s.authors = ["Alex Blackie"]
   s.email = "alex@alexblackie.com"
   s.files = Dir["README.markdown", "lib/**/*"]
