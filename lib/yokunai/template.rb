@@ -31,7 +31,7 @@ module Yokunai
     # @param template [String] the template name
     # @return [Boolean]
     def exist?(template)
-      File.exists?(File.join(@template_path, template + ".erb"))
+      File.exist?(File.join(@template_path, template + ".erb"))
     end
 
     private
