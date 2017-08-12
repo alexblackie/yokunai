@@ -32,15 +32,6 @@ class HomeController < Yokunai::AbstractController
 end
 ```
 
-Add some configuration for where you want to keep things:
-
-```yml
-# config/development.yml
----
-template_dir: web/views
-asset_dir: web/assets
-```
-
 Now just make a rackup config so we can run something:
 
 ```ruby
@@ -56,6 +47,26 @@ run Yokunai::Application.new(
 
 Then just `bundle exec rackup` and you're gold, Ponyboy.
 
+## Configuration
+
+You can configure Yokunai via a YAML file. Create `config/development.yml`
+(where `development` is whatever environment you want to configure). Anything in
+this file will be populated into the `Yokunai::Config` helper, so you can fetch
+things easily with `Yokunai::Config.get("my_key")` anywhere in your app.
+
+For example,
+
+```yml
+# config/development.yml
+---
+template_dir: web/htmls
+some_secret_key: abc123
+```
+
+Some values have defaults to make setup easier, feel free to override any of
+them. An exhaustive list can be found [in the Config class
+itself][config_defaults].
+
 ## Assets
 
 You probably have frontend assets, if this is a web page. There's a controller
@@ -70,3 +81,5 @@ ROUTES = {
 
 Now assets will be served out of the directory you set as your `asset_dir` in
 the YAML config.
+
+[config_defaults]: ./lib/yokunai/config.rb
