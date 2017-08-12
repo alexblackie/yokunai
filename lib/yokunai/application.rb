@@ -13,7 +13,6 @@ module Yokunai
 
     # Route a request to the correct controller based on the given data.
     #
-    # @param path [String] the domain-relative path being requested.
     # @param env [Rack::Env] the full Rack environment
     # @return [Array] a Rack-compatible response array.
     def call(env)
