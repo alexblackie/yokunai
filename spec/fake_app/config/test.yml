@@ -1,4 +1,3 @@
 ---
-template_dir: web/views
 asset_dir: web/assets
 some_key: get me

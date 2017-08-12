@@ -3,9 +3,10 @@ module Yokunai
   class Template
 
     FALLBACK_EMPTY_LAYOUT = "<%= partial %>".freeze
+    DEFAULT_TEMPLATE_DIR = "web/views"
 
     def initialize(template_path: nil)
-      @template_path = template_path || File.join(Yokunai::Config.base_dir, Yokunai::Config.get("template_dir"))
+      @template_path = template_path || template_dir
       @raw_layout = get_layout
     end
 
@@ -43,6 +44,11 @@ module Yokunai
       else
         FALLBACK_EMPTY_LAYOUT
       end
+    end
+
+    def template_dir
+      dirname = Yokunai::Config.get("template_dir") || DEFAULT_TEMPLATE_DIR
+      File.join(Yokunai::Config.base_dir, dirname)
     end
 
   end
