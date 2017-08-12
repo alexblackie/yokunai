@@ -1,8 +1,11 @@
 module Yokunai
   class StaticController < AbstractController
 
+    DEFAULT_ASSETS_DIR = "web/assets".freeze
+
     def get
-      asset_dir = File.join(Yokunai::Config.base_dir, Yokunai::Config.get("asset_dir"))
+      dirname = Yokunai::Config.get("asset_dir") || DEFAULT_ASSETS_DIR
+      asset_dir = File.join(Yokunai::Config.base_dir, dirname)
       asset_file = File.join(asset_dir, @captures[:name])
 
       if File.exist?(asset_file)
