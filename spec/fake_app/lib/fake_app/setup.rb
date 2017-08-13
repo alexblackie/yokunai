@@ -1,7 +1,7 @@
 module FakeApp
 
   ROUTES = {
-    %r{^/$} => { class: "FakeApp::HomeController", methods: ["GET"] },
+    %r{^/$} => { class: "FakeApp::HomeController", methods: ["GET", "POST"] },
     %r{^/assets/(?<name>.+)$} => {class: "Yokunai::StaticController", methods: ["GET"]},
   }.freeze
 

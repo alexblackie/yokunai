@@ -75,5 +75,9 @@ module Yokunai
       [405, {}, ["Error 405: Method not supported on this resource.\n"]]
     end
 
+    def request
+      @request ||= Rack::Request.new(@env)
+    end
+
   end
 end
