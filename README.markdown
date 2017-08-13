@@ -88,7 +88,7 @@ If your app needs to do something on-boot (maybe seed a cache, ping an
 orchestrator, etc.) then you can create a "boot hook" to do that. Just create a
 PORO class with a `.run` method, which will be invoked when the app boots.
 
-```
+```ruby
 # lib/my_app/some_hook.rb
 module MyApp
   class SomeHook
@@ -101,7 +101,7 @@ end
 
 Then pass the class in when you boot the app:
 
-```
+```ruby
 # config.ru
 [...]
 
