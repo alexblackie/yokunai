@@ -2,10 +2,6 @@ require "spec_helper"
 
 RSpec.describe Yokunai::Config do
 
-  before do
-    Yokunai::Config.base_dir = FakeApp::BASE_DIR
-  end
-
   context "with a YAML config" do
     before do
       Yokunai::Config.populate

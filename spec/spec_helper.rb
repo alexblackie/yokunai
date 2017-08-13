@@ -31,5 +31,9 @@ RSpec.configure do |config|
     config.default_formatter = "doc"
   end
 
+  config.before(:suite) do
+    Yokunai::Config.base_dir = FakeApp::BASE_DIR
+  end
+
   Kernel.srand config.seed
 end
