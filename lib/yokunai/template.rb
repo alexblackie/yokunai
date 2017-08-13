@@ -20,9 +20,7 @@ module Yokunai
       return nil unless exist?(template)
 
       path = File.join(@template_path, template + ".erb")
-      layout_context = context.merge({
-        partial: ERB.new(File.read(path)).result(Yokunai::RenderContext.new(context).get_binding)
-      })
+      layout_context = context.merge(partial: ERB.new(File.read(path)).result(Yokunai::RenderContext.new(context).get_binding))
 
       ERB.new(@raw_layout).result(Yokunai::RenderContext.new(layout_context).get_binding)
     end

@@ -1,7 +1,6 @@
 require "spec_helper"
 
 RSpec.describe Yokunai::Mime do
-
   describe ".detect_from_path" do
     subject { described_class.detect_from_path(path, "application/octet-stream") }
 
@@ -20,7 +19,5 @@ RSpec.describe Yokunai::Mime do
         expect(subject).to eq "application/octet-stream"
       end
     end
-
   end
-
 end

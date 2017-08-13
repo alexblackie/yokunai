@@ -1,7 +1,6 @@
 require "spec_helper"
 
 RSpec.describe Yokunai::Config do
-
   context "with a YAML config" do
     before do
       Yokunai::Config.populate
@@ -33,5 +32,4 @@ RSpec.describe Yokunai::Config do
       end
     end
   end
-
 end

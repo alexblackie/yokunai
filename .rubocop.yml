@@ -1,0 +1,146 @@
+AllCops:
+  Include:
+    - "**/Gemfile"
+    - "**/config.ru"
+
+# Effectively disable length-related fails. These are dumb to hard-require, and
+# should just be encouraged IRL in code review.
+Metrics/LineLength:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/ModuleLength:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Metrics/ParameterLists:
+  Enabled: false
+
+# Disable complexity metrics. Why would a computer decide whether something can
+# be read well by humans? Just catch this in code review.
+Metrics/PerceivedComplexity:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+
+# Bump up block nesting metric a bit, but really should fix this in some places...
+Metrics/BlockNesting:
+  Max: 5
+
+# Don't enforce class comments (but encourage them IRL)
+Documentation:
+  Enabled: false
+
+# Keep your blocks tight...
+Layout/EmptyLinesAroundBlockBody:
+  EnforcedStyle: no_empty_lines
+
+# ... But your classes spacey
+Layout/EmptyLinesAroundClassBody:
+  EnforcedStyle: empty_lines_except_namespace
+
+# Don't align a multi-line method call's args
+Layout/FirstParameterIndentation:
+  EnforcedStyle: consistent
+
+# Don't enforce underscored numbers
+Style/NumericLiterals:
+  Enabled: false
+
+# Double quotes for consistency in all circumstances.
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# Don't force using %i for symbol arrays
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+# Enforce spacing within {}
+Layout/SpaceInsideBlockBraces:
+  EnforcedStyle: space
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
+Layout/SpaceInsideStringInterpolation:
+  EnforcedStyle: no_space
+
+Layout/SpaceInLambdaLiteral:
+  EnforcedStyle: require_space
+
+# Only warn if the `else` is empty, not if it's nil
+Style/EmptyElse:
+  EnforcedStyle: empty
+
+# Never make compact methods. They are gross.
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+Style/SingleLineMethods:
+  AllowIfMethodIsEmpty: false
+
+# Alignment
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+Layout/IndentArray:
+  EnforcedStyle: consistent
+Layout/IndentHash:
+  EnforcedStyle: consistent
+
+Lint/EndAlignment:
+  EnforcedStyleAlignWith: variable
+
+# Allow assignments within conditionals
+Lint/AssignmentInCondition:
+  Enabled: false
+
+# Use snake_case even with numbers (eg. `day_2`)
+Style/VariableNumber:
+  EnforcedStyle: snake_case
+
+# Don't lint unused args
+Lint/UnusedBlockArgument:
+  Enabled: false
+Lint/UnusedMethodArgument:
+  Enabled: false
+
+# use self if it makes sense
+Style/RedundantSelf:
+  Enabled: false
+
+# Don't strictly enforce guard clauses (but encourage URL)
+Style/GuardClause:
+  Enabled: false
+
+# Allow "shadowing" local vars in blocks, though discourage in code review.
+Lint/ShadowingOuterLocalVariable:
+  Enabled: false
+
+# Allow suppressing exceptions. This has legitimate use cases sometimes.
+Lint/HandleExceptions:
+  Enabled: false
+
+# Prefer %r over // for regexes
+Style/RegexpLiteral:
+  EnforcedStyle: percent_r
+
+# Weird stuff
+Style/MethodMissing:
+  Enabled: false
+Style/EachWithObject:
+  Enabled: false
+Style/PredicateName:
+  Enabled: false
+Style/ClassVars:
+  Enabled: false
+Style/AccessorMethodName:
+  Enabled: false
+Style/ZeroLengthPredicate:
+  Enabled: false
+Lint/AmbiguousOperator:
+  Enabled: false
+Style/StabbyLambdaParentheses:
+  Enabled: false

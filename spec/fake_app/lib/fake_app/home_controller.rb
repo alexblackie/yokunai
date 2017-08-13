@@ -6,7 +6,7 @@ module FakeApp
     end
 
     def post
-      respond body: "hello #{ request.params["name"] }", code: 201
+      respond body: "hello #{request.params['name']}", code: 201
     end
 
   end

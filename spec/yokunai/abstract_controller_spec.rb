@@ -6,13 +6,11 @@ RSpec.describe Yokunai::AbstractController, type: :request do
 
   describe "#get with params" do
     before do
-      post("/", {name: "bobby"})
+      post("/", name: "bobby")
     end
 
     it "can parse the params" do
       expect(last_response.body).to eq "hello bobby"
     end
-
   end
-
 end

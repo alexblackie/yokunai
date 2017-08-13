@@ -8,8 +8,7 @@ module Yokunai
     DEFAULT_HEADERS = {
       "Content-Type" => "text/html",
       "Server" => "yokunai/1.0"
-    }
-
+    }.freeze
 
     # --------------------------------------------------------------------------
     # Instance Methods
@@ -17,12 +16,11 @@ module Yokunai
 
     # @param env [Rack::Env] The Rack ENV
     # @param captures [MatchData] The named captures from the route regex
-    def initialize(env, captures=nil)
+    def initialize(env, captures = nil)
       @env = env
       @captures = captures
       @templates = Yokunai::Template.new
     end
-
 
     # --------------------------------------------------------------------------
     # Default HTTP method handlers
@@ -52,7 +50,7 @@ module Yokunai
       unsupported_method
     end
 
-  private
+    private
 
     def respond(code: 200, headers: {}, body: "", template: nil, context: {})
       if template

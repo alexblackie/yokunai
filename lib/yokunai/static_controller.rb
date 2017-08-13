@@ -9,7 +9,7 @@ module Yokunai
         mime = Yokunai::Mime.detect_from_path(asset_file)
         asset_body = File.read(asset_file)
 
-        respond(body: asset_body, headers: {"Content-Type" => mime})
+        respond(body: asset_body, headers: { "Content-Type" => mime })
       else
         respond_error(:not_found)
       end

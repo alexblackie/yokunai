@@ -18,12 +18,10 @@ module Yokunai
     def call(env)
       route = @routes.map do |exp, meta|
         next unless matches = env["PATH_INFO"].match(exp)
-        meta.merge({captures: matches})
+        meta.merge(captures: matches)
       end.compact.first
 
-      unless route
-        return Yokunai::ErrorsController.new(env).not_found
-      end
+      return Yokunai::ErrorsController.new(env).not_found unless route
 
       request_method = env["REQUEST_METHOD"]
       if route[:methods].include?(request_method)
