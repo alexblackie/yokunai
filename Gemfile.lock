@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    yokunai (0.1.1)
+    yokunai (0.1.2)
       mimemagic (~> 0.3)
       rack (~> 2.0)
 
