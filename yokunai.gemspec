@@ -1,6 +1,8 @@
+require "./lib/yokunai/version"
+
 Gem::Specification.new do |s|
   s.name = "yokunai"
-  s.version = "0.1.1"
+  s.version = Yokunai::VERSION
   s.summary = "Helps you make really simple dynamic Internet Web Pages."
   s.description = <<-EOS.chomp
   An extremely too-simple web framework based on raw Rack and some helper

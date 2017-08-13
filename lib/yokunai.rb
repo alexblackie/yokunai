@@ -4,6 +4,7 @@ require "ostruct"
 require "yaml"
 
 # Core
+require "yokunai/version"
 require "yokunai/config"
 require "yokunai/application"
 require "yokunai/render_context"
