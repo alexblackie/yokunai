@@ -82,4 +82,34 @@ ROUTES = {
 Now assets will be served out of the directory you set as your `asset_dir` in
 the YAML config.
 
+## Boot Hooks
+
+If your app needs to do something on-boot (maybe seed a cache, ping an
+orchestrator, etc.) then you can create a "boot hook" to do that. Just create a
+PORO class with a `.run` method, which will be invoked when the app boots.
+
+```
+# lib/my_app/some_hook.rb
+module MyApp
+  class SomeHook
+    def self.run
+      puts "Got hooked"
+    end
+  end
+end
+```
+
+Then pass the class in when you boot the app:
+
+```
+# config.ru
+[...]
+
+run Yokunai::Application(
+  routes: ...,
+  base_dir: ...,
+  hooks: [MyApp::SomeHook]
+)
+```
+
 [config_defaults]: ./lib/yokunai/config.rb

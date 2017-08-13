@@ -3,12 +3,18 @@ module Yokunai
   # request to the appropriate controller for handling.
   class Application
 
+    # List of default hooks we run on app boot to set up the framework itself.
+    DEFAULT_HOOKS = [
+      Yokunai::Hooks::ConfigPopulator
+    ].freeze
+
     # @param route_map [Hash] A hash with path regexes as keys, and hashes as values with the controller to send matching requests to.
     # @param base_dir [String] The absolute base directory to use for various lookups.
-    def initialize(route_map:, base_dir:)
+    # @param hooks [Array] An optional list of classes which will have their class-level `run` method called when the app boots.
+    def initialize(route_map:, base_dir:, hooks: [])
       @routes = route_map
       Yokunai::Config.base_dir = base_dir
-      Yokunai::Config.populate(ENV["YOKUNAI_ENV"] || "development")
+      (DEFAULT_HOOKS + hooks).each(&:run)
     end
 
     # Route a request to the correct controller based on the given data.
