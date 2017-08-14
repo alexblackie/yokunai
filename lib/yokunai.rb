@@ -2,6 +2,7 @@
 require "mimemagic"
 require "ostruct"
 require "yaml"
+require "erb"
 
 # Setup
 require "yokunai/version"
