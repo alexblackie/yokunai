@@ -7,7 +7,6 @@ module Yokunai
 
     DEFAULT_HEADERS = {
       "Content-Type" => "text/html",
-      "Server" => "yokunai/1.0"
     }.freeze
 
     # --------------------------------------------------------------------------
