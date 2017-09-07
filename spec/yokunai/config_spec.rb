@@ -21,6 +21,23 @@ RSpec.describe Yokunai::Config do
     end
   end
 
+  describe ".set" do
+    let!(:some_object) { Object.new }
+
+    before do
+      Yokunai::Config.set("dynamic_key", some_object)
+    end
+
+    it "sets the key given" do
+      expect(Yokunai::Config.get("dynamic_key")).to eq some_object
+    end
+
+    it "isn't persisted" do
+      Yokunai::Config.populate
+      expect(Yokunai::Config.get("dynamic_key")).to be_nil
+    end
+  end
+
   context "default" do
     before do
       Yokunai::Config.populate("not_a_file")

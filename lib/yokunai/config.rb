@@ -46,5 +46,16 @@ module Yokunai
       @@config[key]
     end
 
+    # Set the given value to the given key. This does *not* persist to the
+    # YAML, just stores it in memory. Useful for storing "singleton"-like
+    # service classes (database connections, etc).
+    #
+    # @param key [String] the key
+    # @param value [Any] the object to store under key.
+    # @return [Any] the value.
+    def self.set(key, value)
+      @@config[key] = value
+    end
+
   end
 end
