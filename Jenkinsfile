@@ -1,6 +1,12 @@
-node {
-  docker.image("ruby:2.4").inside {
-    sh "bundle install"
-    sh "bundle exec rspec"
+pipeline {
+  agent { dockerfile true }
+
+  stages {
+    stage("Test") {
+      steps {
+        sh "bundle install"
+        sh "bundle exec rspec"
+      }
+    }
   }
 }
