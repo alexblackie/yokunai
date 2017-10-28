@@ -1,4 +1,6 @@
-# よくない [![Build Status](https://ci.blackieops.com/buildStatus/icon?job=yokunai-tests)](https://ci.blackieops.com/job/yokunai-tests/)
+# よくない
+
+[![CI Build Status](https://ci.blackieops.com/job/alexblackie/job/yokunai/job/master/badge/icon)](https://ci.blackieops.com/job/alexblackie/job/yokunai/job/master/)
 
 It's not very good.
 
