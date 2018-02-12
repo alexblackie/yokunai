@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    yokunai (0.1.5)
+    yokunai (0.1.6)
       mimemagic (~> 0.3)
       rack (~> 2.0)
 
@@ -62,4 +62,4 @@ DEPENDENCIES
   yokunai!
 
 BUNDLED WITH
-   1.15.4
+   1.16.1
