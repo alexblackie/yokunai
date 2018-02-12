@@ -1,2 +1,4 @@
 ---
 some_key: get me
+asset_hooks:
+  text/css: "FakeApp::TestAssetHook"

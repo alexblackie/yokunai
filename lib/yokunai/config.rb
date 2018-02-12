@@ -6,7 +6,19 @@ module Yokunai
     # Any key in this hash can be overridden in your app's `config/*.yml`.
     DEFAULT_CONFIGURATION = {
       "template_dir" => "web/views",
-      "asset_dir" => "web/assets"
+      "asset_dir" => "web/assets",
+
+      # This provides an extension point for pre-processing of static assets
+      # on-the-fly. Takes the mime type as a key, and the string of a classname
+      # as the value -- the class-level method `.process` will be called with
+      # the asset's body as the only argument.
+      #
+      # Example:
+      #
+      #     { "text/css" => "MyApp::Minifier" }
+      #
+      # ... will call MyApp::Minifier.process(asset_body)
+      "asset_hooks" => {}
     }.freeze
 
     # Set the base directory path.
